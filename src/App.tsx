@@ -5,7 +5,7 @@ import { StatsFilters as Filters } from "./components/StatsFilters";
 import "./styles/statsTable.css";
 
 const DEFAULT_FILTERS: StatsFilters = {
-  season: "2024-25",
+  season: "2025-26",
   fase: "regular",
   categ: "pontos",
   tipo: "avg",
