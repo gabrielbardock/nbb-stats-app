@@ -20,8 +20,8 @@ export function StatsTable({ data }: Props) {
 
   return (
     <>
-      <div className="card">
-        <table>
+      <div className="card table-wrapper">
+        <table className="stats-table">
           <thead>
             <tr>
               <th>#</th>

@@ -14,7 +14,7 @@ body {
 .app-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 32px 20px;
+  padding: 16px;
 }
 
 .app-title {
@@ -24,6 +24,17 @@ body {
   color: #f8fafc;
 }
 
+@media (max-width: 768px) {
+  .app-container {
+    padding: 12px;
+  }
+
+  .app-title {
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
+
 /* Card */
 .card {
   background: #020617; /* slate-950 */
@@ -31,6 +42,10 @@ body {
   padding: 16px;
   box-shadow: 0 10px 30px rgba(0,0,0,.4);
   overflow-x: auto;
+
+  @media (max-width: 768px) {
+    padding-top: 0px;
+  }
 }
 
 /* Tabela */
@@ -155,6 +170,7 @@ tbody tr:hover {
   padding: 10px 12px;
   border-radius: 8px;
   font-size: 0.9rem;
+  text-transform: capitalize;
 }
 
 .filters input::placeholder {
@@ -175,6 +191,20 @@ th:hover {
   gap: 12px;
   margin-bottom: 20px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .filters-bar {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .filters-bar select,
+  .filters-bar input {
+    width: 100%;
+    font-size: 16px; /* evita zoom automático no iOS */
+  }
 }
 
 .search-input {
@@ -198,6 +228,46 @@ th:hover {
 
 @media (max-width: 768px) {
   .search-input {
-    width: 100%;
+    height: 44px; /* padrão de toque */
+  }
+}
+
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .stats-table {
+    font-size: 12px;
+  }
+
+  .stats-table th,
+  .stats-table td {
+    padding: 6px 8px;
+    white-space: nowrap;
+  }
+}
+
+/* @media (max-width: 768px) {
+  .stats-table td:nth-child(2) {
+    position: sticky;
+    left: 0;
+  }
+} */
+
+.table-wrapper::before {
+  content: "↔️ deslize para ver mais";
+  display: block;
+  font-size: 12px;
+  text-align: center;
+  margin: 5px 0;
+  color: #777;
+}
+
+@media (min-width: 769px) {
+  .table-wrapper::before {
+    display: none;
   }
 }
