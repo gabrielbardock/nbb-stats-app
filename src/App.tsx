@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getStats, type StatsRow, type StatsFilters } from "./services/nbbApi";
-import { StatsTable } from "./components/StatsTable";
-import { StatsFilters as Filters } from "./components/StatsFilters";
+import StatsTable from "./components/StatsTable/index.tsx";
+import Filters from "./components/StatsFilters/index.tsx";
 import "./styles/statsTable.css";
 
 const DEFAULT_FILTERS: StatsFilters = {

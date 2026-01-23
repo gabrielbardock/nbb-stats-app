@@ -23,7 +23,7 @@ const categs = [
   "eficiencia","duplos-duplos","enterradas"
 ];
 
-export function StatsFilters({ filters, onChange }: Props) {
+const StatsFilters = ({ filters, onChange }: Props) => {
   function update(key: string, value: string) {
     onChange({ ...filters, [key]: value });
   }
@@ -69,3 +69,5 @@ export function StatsFilters({ filters, onChange }: Props) {
     </div>
   );
 }
+
+export default StatsFilters;

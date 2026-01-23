@@ -4,9 +4,9 @@ interface Props {
   data: any[];
 }
 
-const PAGE_SIZE = 50;
+const PAGE_SIZE = 25;
 
-export function StatsTable({ data }: Props) {
+const StatsTable = ({ data }: Props) => {
   const [visible, setVisible] = useState(PAGE_SIZE);
 
   useEffect(() => {
@@ -52,3 +52,5 @@ export function StatsTable({ data }: Props) {
     </>
   );
 }
+
+export default StatsTable;
