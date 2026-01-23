@@ -1,0 +1,139 @@
+.players-page {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 24px 16px;
+}
+
+.players-page h1 {
+  margin-bottom: 16px;
+  font-size: 28px;
+}
+
+/* ===== Filtros ===== */
+
+.players-filters {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.players-filters input,
+.players-filters select {
+  height: 40px;
+  padding: 0 12px;
+  font-size: 14px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.players-filters input {
+  flex: 1;
+}
+
+.players-filters input:focus,
+.players-filters select:focus {
+  border-color: #2563eb;
+}
+
+/* ===== Contador ===== */
+
+.players-count {
+  font-size: 14px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+/* ===== Lista ===== */
+
+.players-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ===== Linha do jogador ===== */
+
+.player-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  transition: background 0.15s ease, box-shadow 0.15s ease;
+  cursor: pointer;
+}
+
+.player-row:hover {
+  background: #f9fafb;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+/* ===== Avatar ===== */
+
+.player-row img {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  object-fit: cover;
+  background: #eee;
+}
+
+/* ===== Info ===== */
+
+.player-info {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.player-info strong {
+  font-size: 15px;
+  color: #111;
+}
+
+.player-info span {
+  font-size: 13px;
+  color: #111;
+}
+
+/* ===== Número ===== */
+
+.player-number {
+  font-weight: bold;
+  font-size: 16px;
+  color: #111;
+}
+
+/* ===== Botão ===== */
+
+.load-more {
+  margin: 24px auto 0;
+  display: block;
+  height: 42px;
+  padding: 0 24px;
+  border-radius: 8px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.load-more:hover {
+  background: #1e4ed8;
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 600px) {
+  .players-filters {
+    flex-direction: column;
+  }
+
+  .player-number {
+    font-size: 14px;
+  }
+}

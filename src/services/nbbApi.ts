@@ -1,3 +1,5 @@
+import { API_URL } from "./config";
+
 export interface StatsFilters {
   season: string;
   fase: string;
@@ -20,8 +22,6 @@ export async function getStats(filters: StatsFilters) {
     quem: filters.quem,
     sofrido: String(filters.sofrido ?? false),
   });
-
-  const API_URL = "https://nbb-stats-api.onrender.com";
 
   const response = await fetch(
     `${API_URL}/stats?${params.toString()}`

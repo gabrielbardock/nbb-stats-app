@@ -1,67 +1,30 @@
-import { useEffect, useState } from "react";
-import { getStats, type StatsRow, type StatsFilters } from "./services/nbbApi";
-import StatsTable from "./components/StatsTable/index.tsx";
-import Filters from "./components/StatsFilters/index.tsx";
-import "./styles/statsTable.css";
+import { Routes, Route } from "react-router-dom";
 
-const DEFAULT_FILTERS: StatsFilters = {
-  season: "2025-26",
-  fase: "regular",
-  categ: "pontos",
-  tipo: "avg",
-  quem: "athletes",
-};
+import { Header } from "./components/Header/Header.tsx";
+import { Footer } from "./components/Footer/Footer.tsx";
+
+import Stats from "./pages/Stats.tsx";
+import Players from "./pages/Players.tsx";
+import Teams from "./pages/Teams.tsx";
+import PlayerPage from "./pages/Player.tsx";
 
 function App() {
-  const [filters, setFilters] = useState(DEFAULT_FILTERS);
-  const [data, setData] = useState<StatsRow[]>([]);
-  const [loading, setLoading] = useState(false);
-  const [search, setSearch] = useState("");
-
-  useEffect(() => {
-    setLoading(true);
-    getStats(filters)
-      .then(setData)
-      .finally(() => setLoading(false));
-  }, [filters]);
-
-  const filteredData = data.filter((item) => {
-    if (!search.trim()) return true;
-
-    const value = search.toLowerCase();
-
-    return (
-      item.Jogador?.toLowerCase().includes(value) ||
-      item.Equipe?.toLowerCase().includes(value)
-    );
-  });
-
   return (
-    <div className="app-container">
-      <h1 className="app-title">📊 Estatísticas NBB</h1>
+    <>
+      <Header />
 
-      <div className="filters-bar">
-        <Filters filters={filters} onChange={setFilters} />
+      <main className="app-container">
+        <Routes>
+          <Route path="/" element={<Stats />} />
+          <Route path="/estatisticas" element={<Stats />} />
+          <Route path="/atletas" element={<Players />} />
+          <Route path="/equipes" element={<Teams />} />
+          <Route path="/atletas/:id" element={<PlayerPage />} />
+        </Routes>
+      </main>
 
-        <input
-          className="search-input"
-          type="text"
-          placeholder={
-            filters.quem === "teams"
-              ? "Buscar time..."
-              : "Buscar jogador..."
-          }
-          value={search}
-          onChange={(e) => setSearch(e.target.value)}
-        />
-      </div>
-
-      {loading ? (
-        <div className="loading">Carregando...</div>
-      ) : (
-        <StatsTable data={filteredData} />
-      )}
-    </div>
+      <Footer />
+    </>
   );
 }
 
